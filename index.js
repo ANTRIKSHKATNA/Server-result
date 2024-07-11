@@ -6,7 +6,9 @@ const Student = require("./model/studetModel");
 const server = express();
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/result")
+  .connect(
+    "mongodb+srv://antrikshkatna03:GPnmSNSpkuXScd7G@cluster1.ydzieog.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
+  )
   .then(() => console.log("connected to db successfully"));
 
 let data = fs.readFileSync("./detailed_result.json", "utf-8");
@@ -17,6 +19,7 @@ async function abcd() {
   let student = await Student.insertMany(parsedData);
   console.log(student[0]);
 }
+abcd();
 
 server.use(express.json());
 
